@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "sdk_version": "0.26.2",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "refugee-hoop-dreams",
+      "version": "0.1.0",
+      "title": "Refugee Hoop Dreams"
+    },
+    "tools": [
+      {
+        "name": "list_programs",
+        "title": "List programs",
+        "description": "List the Refugee Basketball Initiative's public youth programs, with a summary and highlights for each.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "description": "Optional program slug to return a single program, e.g. 'her-on-court'.",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_events",
+        "title": "List upcoming events",
+        "description": "List the upcoming public events (workshops, camps and tournaments) run by the Refugee Basketball Initiative.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "limit": {
+              "description": "Optional maximum number of events to return.",
+              "type": "integer",
+              "minimum": -9007199254740991,
+              "maximum": 9007199254740991
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_impact",
+        "title": "Get impact figures",
+        "description": "Get the organisation's published impact statistics (youth reached, players trained, scholarships) and the outcome areas behind them.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_stories",
+        "title": "List success stories",
+        "description": "List published success stories from young people in the programs, optionally filtered by tag (scholarship, empowerment, community).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "description": "Optional tag filter, e.g. 'scholarship'.",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_support_options",
+        "title": "Get ways to support",
+        "description": "Get the published ways to support the organisation: donation tiers with what each amount funds, plus volunteering and partnership options.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_contact_info",
+        "title": "Get contact information",
+        "description": "Get the organisation's public contact details (locations, email, phone) and the list of pages on the website.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
