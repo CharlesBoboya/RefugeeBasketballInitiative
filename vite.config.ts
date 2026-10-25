@@ -15,5 +15,6 @@ export default defineConfig({
   },
   vite: {
     plugins: [mcpPlugin()],
+    base: '/RefugeeBasketballInitiative/',
   },
 });
