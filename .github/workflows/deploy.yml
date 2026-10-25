@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: "main" # Change to master if needed
+    branches: "main"
 
 permissions:
   contents: read
@@ -18,18 +18,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-cache: 'npm'
+          node-version: 22 # Explicitly tells GitHub to use a stable modern Node version
+          cache: 'npm'     # Fixed the 'node-cache' typo here
+
       - name: Install dependencies
         run: npm ci
+
       - name: Build project
-        run: npm run build # Ensures your TS is compiled
+        run: npm run build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # Change to './build' if using Create React App
+          path: './dist'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
