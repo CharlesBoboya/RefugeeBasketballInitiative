@@ -23,7 +23,7 @@ jobs:
         with:
           node-cache: 'npm'
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Build project
         run: npm run build # Ensures your TS is compiled
       - name: Upload artifact
