@@ -16,5 +16,8 @@ export default defineConfig({
   vite: {
     plugins: [mcpPlugin()],
     base: '/RefugeeBasketballInitiative/',
+    build: {
+    outDir: 'dist', // 👈 Forces Vite to output directly to 'dist'
+  },
   },
 });
